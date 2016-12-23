@@ -3,6 +3,7 @@
 
 <dom-module id="c3-graphs">
   <template>
+    <div id="grafica"></div>
   </template>
   <script src="../../bower_components/d3/d3.js"></script>
   <script src="../../bower_components/c3/c3.js"></script>
@@ -18,6 +19,15 @@
           type: String,
           value:"nombre-grafica"
         }
+      },
+      attached: function () {
+        this.points.unshift(this.name);
+        c3.generate({
+          bindto: this.$.grafica,
+          data: {
+            columns: [this.points]
+          }
+        });
       }
     });
   </script>
