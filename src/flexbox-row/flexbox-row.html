@@ -1,0 +1,41 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<dom-module id="flexbox-row">
+  <style>
+    :host {
+      display: block;
+      width: 100%;
+    }
+    .row {
+      width: 100%;
+    }
+    .row.altura-completa {
+      height: 100vh;
+    }
+    :host([middle]) .row {
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+    :host([center]) .row {
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      -webkit-box-pack: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .red {
+      background-color: rgb(200, 50, 50);
+    }
+  </style>
+  <template>
+    <div class$="row [[rowclass]]">
+      <content></content>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      is: "flexbox-row",
+    });
+  </script>
+</dom-module>

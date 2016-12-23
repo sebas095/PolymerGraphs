@@ -1,4 +1,8 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../flexbox-row/flexbox-row.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-toggle-button/paper-toggle-button.html">
 
 <dom-module id="polymer-graphs-app">
   <template>
@@ -6,22 +10,31 @@
       :host {
         display: block;
       }
+      paper-button {
+        background-color: rgb(200, 50, 50);
+        color: white;
+      }
     </style>
-    <h2>Hello [[prop1]]</h2>
+    <flexbox-row center middle rowclass="altura-completa">
+       <flexbox-row>
+         <div class="col-xs-6">
+           Grafica
+         </div>
+       </flexbox-row>
+       <div class="col-md-3">
+         <paper-input id="input" type="number" label="Agregar nuevo punto a la gráfica"></paper-input>
+         <paper-button raised id="boton">Agregar</paper-button>
+       </div>
+       <div class="col-md-2">
+         <paper-toggle-button checked>
+           Gráfica de barras
+         </paper-toggle-button>
+       </div>
+    </flexbox-row>
   </template>
-
   <script>
     Polymer({
-
       is: 'polymer-graphs-app',
-
-      properties: {
-        prop1: {
-          type: String,
-          value: 'polymer-graphs-app',
-        },
-      },
-
     });
   </script>
 </dom-module>
