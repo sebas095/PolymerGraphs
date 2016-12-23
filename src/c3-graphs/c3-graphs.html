@@ -1,0 +1,24 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="stylesheet" href="../../bower_components/c3/c3.css">
+
+<dom-module id="c3-graphs">
+  <template>
+  </template>
+  <script src="../../bower_components/d3/d3.js"></script>
+  <script src="../../bower_components/c3/c3.js"></script>
+  <script>
+    Polymer({
+      is: "c3-graphs",
+      properties: {
+        points: {
+          type: Array,
+          value: [1, 2, 3, 4]
+        },
+        name: {
+          type: String,
+          value:"nombre-grafica"
+        }
+      }
+    });
+  </script>
+</dom-module>
