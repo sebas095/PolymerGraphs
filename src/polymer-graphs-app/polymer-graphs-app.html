@@ -28,7 +28,7 @@
          <paper-button raised id="borrar">Eliminar</paper-button>
        </div>
        <div class="col-md-2">
-         <paper-toggle-button checked>
+         <paper-toggle-button checked="{{ bandera::change }}">
            Gráfica de barras
          </paper-toggle-button>
        </div>
@@ -37,6 +37,12 @@
   <script>
     Polymer({
       is: 'polymer-graphs-app',
+      properties: {
+        bandera: {
+          type: Boolean,
+          observer: "_check_bandera"
+        }
+      },
       ready: function () {
         // Add Points
         this.$.boton.addEventListener("click", (ev) => {
@@ -44,10 +50,13 @@
           this.$.grafica.addPoint(numero);
         });
 
-        // Delete Points        
+        // Delete Points
         this.$.borrar.addEventListener("click", (ev) => {
           this.$.grafica.deletePoint();
         });
+      },
+      _check_bandera: function (newValue, oldValue) {
+        this.$.grafica.bar = newValue;
       }
     });
   </script>
