@@ -19,12 +19,13 @@
     <flexbox-row center middle rowclass="altura-completa">
        <flexbox-row>
          <div class="col-xs-6">
-           <c3-graphs name="reproducciones" points="[100, 50, 500, 20, 10]"></c3-graphs>
+           <c3-graphs name="reproducciones" id="grafica" points="[100, 50, 500, 20, 10]"></c3-graphs>
          </div>
        </flexbox-row>
        <div class="col-md-3">
          <paper-input id="input" type="number" label="Agregar nuevo punto a la gráfica"></paper-input>
          <paper-button raised id="boton">Agregar</paper-button>
+         <paper-button raised id="borrar">Eliminar</paper-button>
        </div>
        <div class="col-md-2">
          <paper-toggle-button checked>
@@ -36,6 +37,18 @@
   <script>
     Polymer({
       is: 'polymer-graphs-app',
+      ready: function () {
+        // Add Points
+        this.$.boton.addEventListener("click", (ev) => {
+          let numero = this.$.input.value;
+          this.$.grafica.addPoint(numero);
+        });
+
+        // Delete Points        
+        this.$.borrar.addEventListener("click", (ev) => {
+          this.$.grafica.deletePoint();
+        });
+      }
     });
   </script>
 </dom-module>

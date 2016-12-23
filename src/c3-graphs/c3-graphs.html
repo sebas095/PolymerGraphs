@@ -22,12 +22,22 @@
       },
       attached: function () {
         this.points.unshift(this.name);
-        c3.generate({
-          bindto: this.$.grafica,
-          data: {
-            columns: [this.points]
+        this.chart = c3.generate(
+          {
+            bindto: this.$.grafica,
+            data: {
+              columns: [this.points]
+            }
           }
-        });
+        );
+      },
+      addPoint: function (point) {
+        this.points.push(point);
+        this.chart.load({columns: [this.points]});
+      },
+      deletePoint: function() {
+        this.points.pop();
+        this.chart.load({columns: [this.points]});
       }
     });
   </script>
